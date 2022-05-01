@@ -1,12 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!DOCTYPE html> <!-- html 버전이 여러개라 버전 정해주는 것-->
+<html> 
+    <head> <!-- 화면이 아니라 썸네일 등에 뜨는 부분을 제작-->
+        <title>웹 기초 스터디</title>
+        <meta property="og:title" content="웹 기초 스터디 페이지"/>
+        <!--script src=""></script--> <!-- script는 어떤 자스 파일 가져올지 쓰는 것. 링크는 css 파일에 대해서.-->
+        <style>
+            h1 {
+                color: red;
+            }
+            p {
+                color: thistle;
+            }
+            pre {
+                color: red;
+            }
+            a {
+                color:black;
+            }
+            div {
+                display: flex;
+                flex-direction: row;
+                border: 1px;
+            }
+        </style>
+        <script>
+            function allowDrop(ev) {
+              ev.preventDefault();
+            }
+            
+            function drag(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+            }
+            </script>
+    </head>
+    <body>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+        <img id="drag1" src="다운로드.jpeg" draggable="true" ondragstart="drag(event)" width="336" height="336">
+        <div>
+        <h1>&copy rufus du sol</h1>
+        <h1>&nbsp is the best artist</h1>
+        </div>
+        <p><em>루퍼스 드 솔은 호주의 하우스 아티스트입니다.</em></p>
+        <pre>올해 코첼라에서도 공연을 했지요.</pre>
+        <a href="https://www.youtube.com/watch?v=6lKUJXsoXD4" target="_blank">루퍼스 드 솔 유튜브</a>
+        <br/>
+        <img src = "다운로드.jpeg"/>
+        <br/>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6lKUJXsoXD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </body>
 </html>
